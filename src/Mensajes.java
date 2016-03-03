@@ -5,16 +5,21 @@ public class Mensajes {
 
     private int nseleccion;
     private String seleccion;
+    private String numeros = "1) Ordenar numeros\n";
+    private String letras = "2) Ordenar letras\n";
     private String bubble = "1 - Bubble\n";
     private String insertion = "2 - Insertion\n";
     private String bidirectionalBubble = "3 - Bidirectional Bubble\n";
-    private String genserie = "4 - Generar nueva Serie\n";
-    private String salir = "5 - Salir\n";
+    private String shellsort ="4 - Shell Sort\n";
+    private String genserie = "5 - Generar nueva Serie\n";
+    private String salir = "6 - Salir\n";
 
+    private String pantallaPrincipal;
     private String menu;
 
     public Mensajes(int nseleccion) {
-        this.menu = bubble + insertion + bidirectionalBubble + genserie + salir;
+        this.pantallaPrincipal = numeros + letras;
+        this.menu = bubble + insertion + bidirectionalBubble + shellsort + genserie + salir;
         this.nseleccion = nseleccion;
 
         if (this.nseleccion == 1) {
@@ -28,6 +33,10 @@ public class Mensajes {
 
         if (nseleccion == 3) {
             this.seleccion = bidirectionalBubble;
+        }
+        
+        if (nseleccion == 4) {
+            this.seleccion = shellsort;
         }
 
     }
@@ -80,6 +89,16 @@ public class Mensajes {
         return menu;
     }
 
+    public String getPantallaPrincipal() {
+        return pantallaPrincipal;
+    }
+
+    public void setPantallaPrincipal(String pantallaPrincipal) {
+        this.pantallaPrincipal = pantallaPrincipal;
+    }
+    
+    
+
     public static void cls() {
 
         for (int i = 0; i < 50; i++) {
@@ -98,6 +117,11 @@ public class Mensajes {
         } else if (retmenu.getSeleccion() == 2) {
 
             salirMenu();
+        }
+        else {
+            System.out.println("Por favor, seleccione una opcion valida");
+            Mensajes.cls();
+            volverMenu();
         }
 
     }
