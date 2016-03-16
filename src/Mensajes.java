@@ -11,15 +11,16 @@ public class Mensajes {
     private String insertion = "2 - Insertion\n";
     private String bidirectionalBubble = "3 - Bidirectional Bubble\n";
     private String shellsort ="4 - Shell Sort\n";
-    private String genserie = "5 - Generar nueva Serie\n";
-    private String salir = "6 - Salir\n";
+    private String selectionSort = "5 - Selection Sort\n";
+    private String genserie = "6 - Generar nueva Serie\n";
+    private String salir = "7 - Salir\n";
 
     private String pantallaPrincipal;
     private String menu;
 
     public Mensajes(int nseleccion) {
         this.pantallaPrincipal = numeros + letras;
-        this.menu = bubble + insertion + bidirectionalBubble + shellsort + genserie + salir;
+        this.menu = bubble + insertion + bidirectionalBubble + shellsort + selectionSort  + genserie + salir;
         this.nseleccion = nseleccion;
 
         if (this.nseleccion == 1) {
@@ -37,6 +38,10 @@ public class Mensajes {
         
         if (nseleccion == 4) {
             this.seleccion = shellsort;
+        }
+        
+        if (nseleccion == 5) {
+            this.seleccion = selectionSort;
         }
 
     }

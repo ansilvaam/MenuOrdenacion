@@ -61,6 +61,12 @@ public class CargarMenu {
             ShellSort.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 5) {
+            
+           Mensajes.cls();
+           System.out.println("Usted ha seleccionado: "+indicarSel.getSeleccion());
+           SelectionSort.ordenarSerie();
+            
+        } else if (menu.getSeleccion() == 6) {
 
             Mensajes.cls();
 
