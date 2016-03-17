@@ -92,11 +92,13 @@ public class CargarMenu {
 
             System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
+            QuickSort.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 9) {
 
             System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
+            QuickSort3.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 10) {
 

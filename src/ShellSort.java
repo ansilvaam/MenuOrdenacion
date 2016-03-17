@@ -151,6 +151,8 @@ public class ShellSort {
     }
 
     public static void OrdenarSerie() throws IOException {
+        
+        comp = 0;
 
         if (CargarMenu.numeros) {
 

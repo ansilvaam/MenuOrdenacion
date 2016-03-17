@@ -1,7 +1,8 @@
 
-import java.io.IOException;
+import java.util.Random;
+import java.io.*;
 
-public class MergeSort {
+public class QuickSort3 {
 
     private static int comp = 0;
     private static int camb = 0;
@@ -23,75 +24,77 @@ public class MergeSort {
         System.out.println();
     }
 
-    public static void mergesort(int A[], int izq, int der) {
-        if (izq < der) {
-            int m = (izq + der) / 2;
-            mergesort(A, izq, m);
-            mergesort(A, m + 1, der);
-            merge(A, izq, m, der);
+    static public void sortL(char arr[], int izquierda, int derecha) {
+        int index = partitionL(arr, izquierda, derecha);
+        if (izquierda < index - 1) {
+            sortL(arr, izquierda, index - 1);
+        }
+        if (index < derecha) {
+            sortL(arr, index, derecha);
         }
     }
 
-    public static void mergesortL(char A[], int izq, int der) {
-        if (izq < der) {
-            int m = (izq + der) / 2;
-            mergesortL(A, izq, m);
-            mergesortL(A, m + 1, der);
-            mergeL(A, izq, m, der);
+    static public void sort(int arr[], int izquierda, int derecha) {
+        int index = partition(arr, izquierda, derecha);
+        if (izquierda < index - 1) {
+            sort(arr, izquierda, index - 1);
+        }
+        if (index < derecha) {
+            sort(arr, index, derecha);
         }
     }
 
-    public static void merge(int A[], int izq, int m, int der) {
-        int i, j, k;
-        int[] B = new int[A.length]; //array auxiliar
-        for (i = izq; i <= der; i++) //copia ambas mitades en el array auxiliar
-        {
-            B[i] = A[i];
-        }
+    public static int partition(int arr[], int izquierda, int derecha) {
+        int i = izquierda, j = derecha;
+        int tmp;
 
-        i = izq;
-        j = m + 1;
-        k = izq;
-        while (i <= m && j <= der) //copia el siguiente elemento más grande
-        {
-            if (B[i] <= B[j]) {
-                A[k++] = B[i++];
-            } else {
-                A[k++] = B[j++];
+        int pivot = arr[izquierda];
+
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
             }
-        }
-        while (i <= m) //copia los elementos que quedan de la
-        {
-            A[k++] = B[i++]; //primera mitad (si los hay)
-        }
-    }
-
-    public static void mergeL(char A[], int izq, int m, int der) {
-        int i, j, k;
-        char[] B = new char[A.length]; //array auxiliar
-        for (i = izq; i <= der; i++) //copia ambas mitades en el array auxiliar
-        {
-            B[i] = A[i];
-        }
-
-        i = izq;
-        j = m + 1;
-        k = izq;
-        while (i <= m && j <= der) //copia el siguiente elemento más grande
-        {
-            if (B[i] <= B[j]) {
-                A[k++] = B[i++];
-            } else {
-                A[k++] = B[j++];
+            while (arr[j] > pivot) {
+                j--;
             }
-        }
-        while (i <= m) //copia los elementos que quedan de la
-        {
-            A[k++] = B[i++]; //primera mitad (si los hay)
-        }
+            if (i <= j) {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                i++;
+                j--;
+            }
+        };
+
+        return i;
     }
 
-    public static void mergeSortNumbers() throws IOException {
+    public static int partitionL(char arr[], int izquierda, int derecha) {
+        int i = izquierda, j = derecha;
+        char tmp;
+
+        int pivot = arr[izquierda];
+
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
+            }
+            while (arr[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                i++;
+                j--;
+            }
+        };
+
+        return i;
+    }
+
+    public static void quickSort3Numbers() throws IOException {
 
         if (CargarMenu.generarNuevaSerie) {
             int tam = 10;
@@ -106,7 +109,7 @@ public class MergeSort {
             CargarMenu.cloneSerie = v.clone();
 
             int tamanio = v.length;
-            mergesort(v, 0, tamanio - 1);
+            sort(v, 0, tamanio - 1);
 
             System.out.println("Serie Ordenada ");
             imprimirArreglo(v);
@@ -124,7 +127,7 @@ public class MergeSort {
 
             int tamanio = CargarMenu.cloneSerie.length;
 
-            mergesort(vec, 0, tamanio - 1);
+            sort(vec, 0, tamanio - 1);
 
             System.out.println("Serie Ordenada ");
             imprimirArreglo(vec);
@@ -134,8 +137,7 @@ public class MergeSort {
         }
     }
 
-    public static void mergeSortLetters() throws IOException {
-
+    public static void quickSortLetters() throws IOException {
         if (CargarMenu.generarNuevaSerie) {
             int tam = (int) (Math.random() * 20) + 1; //tam random hasta el 20
             char[] v = new char[tam];
@@ -151,7 +153,7 @@ public class MergeSort {
 
             System.out.println("Serie a Ordenar: ");
             imprimirArregloLetters(v);
-            mergesortL(v, 0, tam - 1);
+            sortL(v, 0, tam - 1);
 
             System.out.println("Serie Ordenada ");
             imprimirArregloLetters(v);
@@ -166,25 +168,25 @@ public class MergeSort {
             System.out.println("Serie a Ordenar: ");
             imprimirArregloLetters(vec);
 
-            int tamanio = CargarMenu.cloneSerieLetras.length;
+            int tam = CargarMenu.cloneSerieLetras.length;
 
-            mergesortL(vec, 0, tamanio - 1);
-            
+            sortL(vec, 0, tam - 1);
+
             System.out.println("Serie Ordenada ");
             imprimirArregloLetters(vec);
 
             System.out.println("\nNumero Comprobaciones: " + comp + "\nCambios hechos: " + camb);
             Mensajes.volverMenu();
         }
+
     }
-    
 
     public static void OrdenarSerie() throws IOException {
 
         if (CargarMenu.numeros) {
-            mergeSortNumbers();
+            quickSort3Numbers();
         } else {
-            mergeSortLetters();
+            quickSortLetters();
         }
 
     }
