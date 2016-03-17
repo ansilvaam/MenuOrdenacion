@@ -7,23 +7,32 @@ public class Mensajes {
     private String seleccion;
     private String numeros = "1) Ordenar numeros\n";
     private String letras = "2) Ordenar letras\n";
-    private String bubble = "1 - Bubble\n";
-    private String insertion = "2 - Insertion\n";
-    private String bidirectionalBubble = "3 - Bidirectional Bubble\n";
-    private String shellsort ="4 - Shell Sort\n";
-    private String selectionSort = "5 - Selection Sort\n";
-    private String genserie = "6 - Generar nueva Serie\n";
-    private String salir = "7 - Salir\n";
+    private String bubble = "1  - Bubble\n";
+    private String insertion = "2  - Insertion\n";
+    private String bidirectionalBubble = "3  - Bidirectional Bubble\n";
+    private String shellsort ="4  - Shell Sort\n";
+    private String selectionSort = "5  - Selection Sort\n";
+    private String heapsort = "6  - Heap Sort\n";
+    private String mergesort = "7  - Merge Sort\n";
+    private String quicksort = "8  - Quick Sort\n";
+    private String quick3sort = "9  - Quick 3 Sort\n";
+    private String radixsort = "10 - Radix Sort\n";
+    private String introsort = "11 - Intro Sort\n";
+    private String timsort = "12 - Tim Sort\n";
+    private String genserie = "13 - Generar nueva Serie\n";
+    private String salir = "14 - Salir\n";
 
     private String pantallaPrincipal;
     private String menu;
 
     public Mensajes(int nseleccion) {
         this.pantallaPrincipal = numeros + letras;
-        this.menu = bubble + insertion + bidirectionalBubble + shellsort + selectionSort  + genserie + salir;
+        this.menu = bubble + insertion + bidirectionalBubble + shellsort 
+                + selectionSort  + heapsort + mergesort +quicksort +quick3sort
+                + radixsort + introsort + timsort + genserie + salir;
         this.nseleccion = nseleccion;
 
-        if (this.nseleccion == 1) {
+        if (nseleccion == 1) {
 
             this.seleccion = bubble;
         }
@@ -43,6 +52,37 @@ public class Mensajes {
         if (nseleccion == 5) {
             this.seleccion = selectionSort;
         }
+        
+        if (nseleccion == 6) {
+
+            this.seleccion = heapsort;
+        }
+
+        if (nseleccion == 7) {
+            this.seleccion = mergesort;
+        }
+
+        if (nseleccion == 8) {
+            this.seleccion = quicksort;
+        }
+        
+        if (nseleccion == 9) {
+            this.seleccion = quick3sort;
+        }
+        
+        if (nseleccion == 10) {
+            this.seleccion = radixsort;
+        }
+        
+        if (nseleccion == 11) {
+
+            this.seleccion = introsort;
+        }
+
+        if (nseleccion == 12) {
+            this.seleccion = timsort;
+        }
+        
 
     }
 

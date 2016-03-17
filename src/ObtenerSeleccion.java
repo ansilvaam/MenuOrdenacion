@@ -52,7 +52,7 @@ public class ObtenerSeleccion {
             return pedirDatos();
         }
 
-        if (n < 1 || n > 6) { //limite del menu de ordenamiento
+        if (n < 1 || n > 14) { //limite del menu de ordenamiento
             Mensajes.cls();
             System.out.println("\033[31m*Ingresa los datos como se especifica.");
 
