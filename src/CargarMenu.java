@@ -104,6 +104,7 @@ public class CargarMenu {
 
             System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
+            RadixSort.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 11) {
 
