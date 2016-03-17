@@ -10,7 +10,7 @@ public class CargarMenu {
     public static boolean happyflag = true;
 
     public static void menuSeleccion() throws IOException {
-        
+
         System.out.println("\033[34mUn menu, con los distintos algoritmos "
                 + "de ordenamiento\n"
                 + "\033[34mvistos en clase del Dr. Ivan - "
@@ -47,71 +47,72 @@ public class CargarMenu {
         Mensajes.cls();
         if (menu.getSeleccion() == 1) {
 
-            System.out.println("Usted ha seleccionado: " 
+            System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
             Bubble.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 2) {
-            
-            System.out.println("Usted ha seleccionado: " 
+
+            System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
             Insertion.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 3) {
 
-            System.out.println("Usted ha seleccionado: " 
+            System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
             BidirectionalBubble.ordenarSerie();
 
         } else if (menu.getSeleccion() == 4) {
 
-            System.out.println("Usted ha seleccionado: " 
+            System.out.println("Usted ha seleccionado: "
                     + indicarSel.getSeleccion());
-                   
+
             ShellSort.OrdenarSerie();
 
         } else if (menu.getSeleccion() == 5) {
-           
-           System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-           SelectionSort.ordenarSerie();
-            
+
+            System.out.println("Usted ha seleccionado: "
+                    + indicarSel.getSeleccion());
+            SelectionSort.ordenarSerie();
+
         } else if (menu.getSeleccion() == 6) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
+                    + indicarSel.getSeleccion());
             HeapSort.OrdenarSerie();
-            
+
         } else if (menu.getSeleccion() == 7) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-            
+                    + indicarSel.getSeleccion());
+            MergeSort.OrdenarSerie();
+
         } else if (menu.getSeleccion() == 8) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-            
+                    + indicarSel.getSeleccion());
+
         } else if (menu.getSeleccion() == 9) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-            
+                    + indicarSel.getSeleccion());
+
         } else if (menu.getSeleccion() == 10) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-            
+                    + indicarSel.getSeleccion());
+
         } else if (menu.getSeleccion() == 11) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-            
+                    + indicarSel.getSeleccion());
+
         } else if (menu.getSeleccion() == 12) {
-            
+
             System.out.println("Usted ha seleccionado: "
-                   +indicarSel.getSeleccion());
-            
+                    + indicarSel.getSeleccion());
+
         } else if (menu.getSeleccion() == 13) {
 
             Mensajes.cls();
@@ -142,11 +143,11 @@ public class CargarMenu {
                     + "una nueva serie.\n");
             menuSeleccion();
         } else if (menu.getSeleccion() == 14) {
-            
+
             Mensajes.salirMenu();
-            
-        }  else {
-            
+
+        } else {
+
         }
     }
 }
